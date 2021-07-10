@@ -1,14 +1,4 @@
-## Docker commands used to build the application 
-# docker build -t  techtrends -f ../Dockerfile   .
-
-## Docker commands used to run the application
-# docker run -d --rm -p 7111:3111 --name TECH techtrends
-
-## Docker commands used to get the application logs
-docker cp TECH:/techtrends/app.log container.log
-
-## Logs from the container running the TechTrends application
-NFO:werkzeug:10/07/2021, 21:10:00  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:10/07/2021, 21:10:00  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
 INFO:werkzeug:10/07/2021, 21:10:32 172.17.0.1 - - [10/Jul/2021 21:10:32] "GET / HTTP/1.1" 200 -
 INFO:app:10/07/2021, 21:10:39 Article "CNCF Cloud Native Interactive Landscape" retrieved
 INFO:werkzeug:10/07/2021, 21:10:39 172.17.0.1 - - [10/Jul/2021 21:10:39] "GET /4 HTTP/1.1" 200 -
@@ -23,4 +13,3 @@ INFO:werkzeug:10/07/2021, 21:12:35 172.17.0.1 - - [10/Jul/2021 21:12:35] "GET /c
 INFO:app:10/07/2021, 21:12:59 New article "Production" created
 INFO:werkzeug:10/07/2021, 21:12:59 172.17.0.1 - - [10/Jul/2021 21:12:59] "POST /create HTTP/1.1" 302 -
 INFO:werkzeug:10/07/2021, 21:12:59 172.17.0.1 - - [10/Jul/2021 21:12:59] "GET / HTTP/1.1" 200 -
- 
