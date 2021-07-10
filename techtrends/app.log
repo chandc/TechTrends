@@ -1,0 +1,12 @@
+INFO:werkzeug:10/07/2021, 11:36:21  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:10/07/2021, 11:36:33 127.0.0.1 - - [10/Jul/2021 11:36:33] "[37mGET / HTTP/1.1[0m" 200 -
+INFO:app_DCC:10/07/2021, 11:36:41 Article "CNCF Cloud Native Definition v1.0" retrieved
+INFO:werkzeug:10/07/2021, 11:36:41 127.0.0.1 - - [10/Jul/2021 11:36:41] "[37mGET /5 HTTP/1.1[0m" 200 -
+INFO:app_DCC:10/07/2021, 11:37:23 "About Us" retrieved
+INFO:werkzeug:10/07/2021, 11:37:23 127.0.0.1 - - [10/Jul/2021 11:37:23] "[37mGET /about HTTP/1.1[0m" 200 -
+INFO:app_DCC:10/07/2021, 11:37:44 post ID 20 not found, 404 error
+INFO:werkzeug:10/07/2021, 11:37:44 127.0.0.1 - - [10/Jul/2021 11:37:44] "[33mGET /20 HTTP/1.1[0m" 404 -
+INFO:werkzeug:10/07/2021, 11:38:22 127.0.0.1 - - [10/Jul/2021 11:38:22] "[37mGET /create HTTP/1.1[0m" 200 -
+INFO:app_DCC:10/07/2021, 11:38:42 New article "Went Live" created
+INFO:werkzeug:10/07/2021, 11:38:42 127.0.0.1 - - [10/Jul/2021 11:38:42] "[32mPOST /create HTTP/1.1[0m" 302 -
+INFO:werkzeug:10/07/2021, 11:38:42 127.0.0.1 - - [10/Jul/2021 11:38:42] "[37mGET / HTTP/1.1[0m" 200 -

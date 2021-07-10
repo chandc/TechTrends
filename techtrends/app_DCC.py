@@ -2,12 +2,18 @@ import sqlite3
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
+import logging
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
+
+numC = 0
 def get_db_connection():
     connection = sqlite3.connect('database.db')
     connection.row_factory = sqlite3.Row
+    global numC
+    numC += 1
+    #print ( numC )
     return connection
 
 # Function to get a post using its ID
@@ -36,13 +42,17 @@ def index():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
+      app.logger.info(f'post ID {post_id} not found, 404 error')
       return render_template('404.html'), 404
     else:
+      title = post['title']
+      app.logger.info(f'Article "{title}" retrieved')
       return render_template('post.html', post=post)
 
 # Define the About Us page
 @app.route('/about')
 def about():
+    app.logger.info('"About Us" retrieved')
     return render_template('about.html')
 
 # Define the post creation functionality 
@@ -61,6 +71,8 @@ def create():
             connection.commit()
             connection.close()
 
+            app.logger.info(f'New article "{title}" created')
+
             return redirect(url_for('index'))
 
     return render_template('create.html')
@@ -75,9 +87,29 @@ def healthcheck():
     #app.logger.info('Status request successfull')
     return response
 
+@app.route('/metrics')
 
+def metrics():
+    connection = get_db_connection()
+    numP = len(connection.execute('SELECT * FROM posts').fetchall())
+    connection.close()
+    global numC
+    numC -= 1
+    response = app.response_class(
+            response=json.dumps({"db_connection_count":numC,"post_count":numP}),
+            status=200,
+            mimetype='application/json'
+    )
+
+    app.logger.info('Metrics request successfull')
+    return response
 
 
 # start the application on port 3111
 if __name__ == "__main__":
-   app.run(host='0.0.0.0', port='3111')
+    ## stream logs to a file
+    logging.basicConfig(filename='app.log',level=logging.DEBUG, 
+                        format='%(levelname)s:%(name)s:%(asctime)s %(message)s',
+                        datefmt='%d/%m/%Y, %H:%M:%S')
+
+    app.run(host='0.0.0.0', port='3111')
