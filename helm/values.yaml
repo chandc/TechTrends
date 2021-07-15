@@ -14,17 +14,17 @@ image:
 replicaCount: 1
 
 resources:
-  requests: 
+  requests:
     memory: "64Mi"
     cpu: "250m"
-  limits: 
+  limits:
     memory: "128Mi"
     cpu: "500m"
 
-containerPort: 3111    
+containerPort: 3111
 
 livenessProbe:
-   path: /healthz
-   
+  path: /healthz
+
 readinessProbe:
-   path: /healthz
+  path: /healthz
