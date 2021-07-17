@@ -12,6 +12,6 @@ spec:
     helm:
       valueFiles:
       - values-staging.yaml
-    path: helm
+    path: DCC_Helm
     repoURL: https://github.com/chandc/TechTrends
     targetRevision: HEAD
