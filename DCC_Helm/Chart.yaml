@@ -1,10 +1,10 @@
 apiVersion: v1
-name: python-helloworld 
-description: Install a Python HelloWorld deployment
+name: techtrends
+description: techtrends
 keywords:
 - python
-- helloworld 
+- techtrends 
 version: 1.0.0
 maintainers:
-- name: kgamanji 
-  email: kgamanji@xyz.com
+- name: chandc 
+  email: chandc999@gmail.com

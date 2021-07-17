@@ -2,14 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: python-helloworld
-  name: python-helloworld
+    app: techtrends
+  name: techtrends
   namespace: {{ .Values.namespace.name }} 
 spec:
   replicas: {{ .Values.replicaCount }} 
   selector:
     matchLabels:
-      app: python-helloworld
+      app: techtrends
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,9 +18,9 @@ spec:
   template:
     metadata:
       labels:
-        app: python-helloworld
+        app: techtrends
     spec:
       containers:
       - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: IfNotPresent 
-        name: python-helloworld
+        name: techtrends
