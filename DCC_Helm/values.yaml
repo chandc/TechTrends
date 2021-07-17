@@ -2,7 +2,9 @@ namespace:
   name: test
  
 image:
-  repository: pixelpotato/python-helloworld 
+  #repository: pixelpotato/python-helloworld 
+  repository: chandc/techtrends
+
   tag: v1.0.0
 
 replicaCount: 3
