@@ -12,6 +12,6 @@ spec:
     helm:
       valueFiles:
       - values-prod.yaml 
-    path: DCC_Helm 
+    path: helm 
     repoURL: https://github.com/chandc/TechTrends
     targetRevision: HEAD
