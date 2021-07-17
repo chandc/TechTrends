@@ -5,6 +5,6 @@ image:
   #repository: pixelpotato/python-helloworld 
   repository: chandc/techtrends
 
-  tag: v1.0.0
+  tag: latest
 
 replicaCount: 3
